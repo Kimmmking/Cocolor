@@ -280,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 searchView.setVisibility(View.GONE);
                 topTitle.setText(queryText);
 
-                String searchSQL = "select * from card where title like '%" + queryText + "%' or description like '%" + queryText + "%'";
+                String searchSQL = "select * from card where title like '%" + queryText + "%' or description like '%" + queryText + "%' or category like '%" + queryText + "%' order by id desc";
                 totalList = cardDAO.selectList(searchSQL, new String[]{});
                 cardRecyclerViewAdapter.setItem(totalList);
 
