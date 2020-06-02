@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private int pageCount;// 总页数，记录完了不再加载数
     private List<Card> totalList;
     private String currentPhotoPath;
+    private String[] category = {"自然","家居","妆容","服饰","美食","宠物","心情","随记"};
 
 
     @Override
@@ -280,7 +281,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 searchView.setVisibility(View.GONE);
                 topTitle.setText(queryText);
 
-                String searchSQL = "select * from card where title like '%" + queryText + "%' or description like '%" + queryText + "%' or category like '%" + queryText + "%' order by id desc";
+                int temp = 9;
+                for(int i = 0; i < 8; i++){
+                    if (queryText.equals(category[i])){
+                        temp = i;
+                        break;
+                    }
+                }
+
+                String searchSQL = "select * from card where title like '%" + queryText + "%' or description like '%" + queryText + "%' or category = '%" + temp + "%' order by id desc";
                 totalList = cardDAO.selectList(searchSQL, new String[]{});
                 cardRecyclerViewAdapter.setItem(totalList);
 
