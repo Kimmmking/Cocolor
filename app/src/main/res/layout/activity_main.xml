@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.qmuiteam.qmui.widget.QMUIWindowInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    tools:context="com.example.cocolor.activity.MainActivity">
+
+        <com.qmuiteam.qmui.layout.QMUILinearLayout
+            android:id="@+id/search_category_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+                <com.qmuiteam.qmui.layout.QMUIRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="30dp">
+
+<!--                        搜索框 + 分类栏 -->
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_marginStart="12dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/back"
+                        android:visibility="gone"/>
+
+
+                    <TextView
+                        android:id="@+id/topbat_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="#abcdf1"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:text="default"
+                        android:visibility="gone"/>
+
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/search_view"
+                        android:layout_marginStart="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:searchMode="queryRewriteFromText" />
+
+
+
+                </com.qmuiteam.qmui.layout.QMUIRelativeLayout>
+
+                <com.qmuiteam.qmui.widget.pullLayout.QMUIPullLayout
+                    android:id="@+id/pull_to_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#f5f5f5">
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/display_cards_recycleview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:background="#f5f5f5"
+                            app:qmui_is_target="true"
+                            android:maxHeight="800dp"/>
+
+<!--                    <com.qmuiteam.qmui.widget.pullLayout.QMUIPullRefreshView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        app:qmui_action_view_init_offset="-20dp"-->
+<!--                        app:qmui_pull_edge="top"-->
+<!--                        app:qmui_target_view_trigger_offset="wrap"-->
+<!--                        app:qmui_pull_rate="0.45"-->
+<!--                        app:qmui_can_over_pull="true"-->
+<!--                        app:qmui_need_receive_fling_from_target_view="false"/>-->
+
+                    <com.qmuiteam.qmui.widget.pullLayout.QMUIPullLoadMoreView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:qmui_action_view_init_offset="0dp"
+                        app:qmui_pull_edge="bottom"
+                        app:qmui_target_view_trigger_offset="wrap"
+                        app:qmui_pull_rate="0.45"
+                        app:qmui_can_over_pull="true"
+                        app:qmui_need_receive_fling_from_target_view="true"/>
+                </com.qmuiteam.qmui.widget.pullLayout.QMUIPullLayout>
+
+
+        </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/blank_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Empty🌟"
+            android:textColor="#a3cef5"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:visibility="gone"/>
+
+
+<!--        <GridView-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:padding="20dp"-->
+<!--            android:numColumns="2"-->
+<!--            android:horizontalSpacing="16dp"-->
+<!--            android:verticalSpacing="40dp"-->
+<!--            android:id="@+id/gridView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--        </GridView>-->
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            android:clickable="true"
+            android:src="@mipmap/create"
+            app:backgroundTint="@android:color/background_light"
+            tools:visibility="visible"
+            android:focusable="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/colloection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="110dp"
+        android:clickable="true"
+        android:src="@mipmap/collection"
+        app:backgroundTint="@android:color/background_light"
+        tools:visibility="visible"
+        android:focusable="true" />
+
+</com.qmuiteam.qmui.widget.QMUIWindowInsetLayout>
